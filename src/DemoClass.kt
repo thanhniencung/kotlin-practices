@@ -1,3 +1,4 @@
+
 fun main() {
     var student = Student()
     println(student.name)
@@ -8,11 +9,17 @@ fun main() {
 
     println("====Customer====")
     val customer = Customer(email = "ryan@gmail.com")
-    customer.email = "alice@gmail.com"
+    customer.sEmail("alice@gmail.com")
     customer.showInfoCustomer()
+
+    //getLang()
 }
 
-class Student {
+open class Person {
+    public var fullName: String = ""
+}
+
+class Student : Person() {
     // props, method
     var name = "Ryan Nguyen"
     var age = 25
@@ -24,11 +31,15 @@ class Student {
 }
 
 class Customer (var name: String = "", var phone: String = "") {
-    var email: String = ""
+    private var email: String = ""
         set(newEmail) {
             field = newEmail + "<===>"
         }
         get() = field
+
+    fun sEmail(newEmail: String) {
+        this.email = newEmail
+    }
 
     init {
         name = "Code4Func"
