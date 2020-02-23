@@ -24,6 +24,7 @@ class Cat : Animal {
     init {
         this.name = "Cat"
     }
+
     constructor(name: String) : super(name)
 
     override fun talk() {
